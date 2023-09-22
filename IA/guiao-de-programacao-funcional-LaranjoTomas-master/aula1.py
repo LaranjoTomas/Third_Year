@@ -76,7 +76,13 @@ def lista_subconjuntos(lista):
 
 #Exercicio 2.1
 def separar(lista):
-	pass
+	if lista == [] :
+		return ([],[])
+	else:
+		first, second = lista[0]
+		rest_first, rest_second = separar(lista[1:])
+		return ([first] + rest_first, [second] + rest_second)
+	
 
 #Exercicio 2.2
 def remove_e_conta(lista, elem):
@@ -92,8 +98,16 @@ def cauda(lista):
 
 #Exercicio 3.3
 def juntar(l1, l2):
-    pass
-
+	if l1 == [] :
+		return []
+	if l2 == [] :
+		return []
+	if len(l1) != len(l2) :
+		return None
+	first = l1[0]
+	second = l2[0]
+	return [(first, second)] + juntar(l1[1:], l2[1:])
+	 
 #Exercicio 3.4
 def menor(lista):
 	pass
