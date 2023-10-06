@@ -134,3 +134,5 @@ class SearchTree:
             self.open_nodes = sorted(self.open_nodes + lnewnodes, key=lambda node: node.cost)
         elif self.strategy == "greedy":
             self.open_nodes = sorted(self.open_nodes + lnewnodes, key=lambda node: node.heuristic)
+        elif self.strategy == "a*":
+            self.open_nodes = sorted(self.open_nodes + lnewnodes, key=lambda node: node.cost + node.heuristic)
