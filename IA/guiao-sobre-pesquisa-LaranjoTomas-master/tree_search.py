@@ -85,6 +85,8 @@ class SearchTree:
         self.solution = None
         self.terminals = 0 # number of nodes chosen to expand (i.e., terminals in the tree)
         self.non_terminals = 0 # number of nodes expanded (i.e., non-terminals in the tree)
+        self.highest_cost_nodes = [root]
+        self.average_depth = 0
 
     @property 
     def length(self):
@@ -117,7 +119,12 @@ class SearchTree:
             for a in self.problem.domain.actions(node.state):
                 newstate = self.problem.domain.result(node.state,a)
                 if newstate not in self.get_path(node):
-                    lnewnodes += [SearchNode(newstate,node, node.depth+1, node.cost + self.problem.domain.cost(node.state,a), self.problem.domain.heuristic(newstate, self.problem.goal))]
+                    newnode = SearchNode(newstate,node, node.depth+1, node.cost + self.problem.domain.cost(node.state,a), self.problem.domain.heuristic(newstate, self.problem.goal))
+                    lnewnodes.append(newnode)
+                    if newnode.cost > self.highest_cost_nodes[0].cost:
+                        self.highest_cost_nodes = [newnode]
+                    elif newnode.cost == self.highest_cost_nodes[0].cost:
+                        self.highest_cost_nodes.append(newnode)
             if limit == None:
                 self.add_to_open(lnewnodes)
             else: 
