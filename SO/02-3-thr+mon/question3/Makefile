@@ -3,13 +3,12 @@ CXXFLAGS = -Wall -Wfatal-errors -ggdb -pthread
 
 TARGETS = main
 
-.PHONY:	all clean cleanall
+.PHONY:	clean cleanall
 
 all: $(TARGETS)
 
-main: main.o utils.o thread.o
+main: main.o utils.o bwdelay.o thread.o
 	$(CXX) -o $@ $^ $(CXXFLAGS)
-
 clean:
 	rm -f *.o
 

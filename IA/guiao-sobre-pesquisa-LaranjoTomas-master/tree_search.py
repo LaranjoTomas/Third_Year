@@ -88,6 +88,7 @@ class SearchTree:
         self.highest_cost_nodes = [root]
         self.average_depth = 0
 
+
     @property 
     def length(self):
         return self.solution.depth
@@ -113,6 +114,7 @@ class SearchTree:
             if self.problem.goal_test(node.state):
                 self.solution = node
                 self.depth = self.solution.depth
+                acum_depth += newnode.depth
                 return self.get_path(node)
             self.non_terminals += 1
             lnewnodes = []
