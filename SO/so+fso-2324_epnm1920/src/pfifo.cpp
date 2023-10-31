@@ -6,43 +6,46 @@ static void print_pfifo(PriorityFIFO* pfifo);
 static int empty_pfifo(PriorityFIFO* pfifo);
 static int full_pfifo(PriorityFIFO* pfifo);
 
-// TODO point: initialization changes may be required in this function
 void init_pfifo(PriorityFIFO* pfifo)
 {
    require (pfifo != NULL, "NULL pointer to FIFO");  // a false value indicates a program error
 
    memset(pfifo->array, 0, sizeof(pfifo->array));
    pfifo->inp = pfifo->out = pfifo->cnt = 0;
-   pthread_mutex_init(&pfifo->pfifo_mutex, NULL); // initialize mutex
-   pthread_cond_init(&pfifo->pfifo_cond, NULL); // initialize condition variable
+
+   pthread_mutex_init(&pfifo->mutex, NULL);
+   pthread_cond_init(&pfifo->cond_not_empty, NULL);
+   pthread_cond_init(&pfifo->cond_not_full, NULL);
 }
 
 /* --------------------------------------- */
 
-// TODO point: termination changes may be required in this function
 void term_pfifo(PriorityFIFO* pfifo)
 {
    require (pfifo != NULL, "NULL pointer to FIFO");  // a false value indicates a program error
 
-   pthread_mutex_lock(&pfifo->pfifo_mutex);
-   pthread_mutex_unlock(&pfifo->pfifo_mutex);
-   pthread_mutex_destroy(&pfifo->pfifo_mutex);
-   pthread_cond_destroy(&pfifo->pfifo_cond);
+   pthread_mutex_destroy(&pfifo->mutex);
+   pthread_cond_destroy(&pfifo->cond_not_empty);
+   pthread_cond_destroy(&pfifo->cond_not_full);
 }
 
 /* --------------------------------------- */
 
-// TODO point: synchronization changes may be required in this function
 void insert_pfifo(PriorityFIFO* pfifo, int id, int priority)
 {
    require (pfifo != NULL, "NULL pointer to FIFO");  // a false value indicates a program error
    require ((id >= 0 && id <= MAX_ID) || id == DUMMY_ID, "invalid id");  // a false value indicates a program error
    require (priority > 0 && priority <= MAX_PRIORITY, "invalid priority value");  // a false value indicates a program error
-   pthread_mutex_lock(&pfifo->pfifo_mutex);
-   while (full_pfifo(pfifo)) {
-      pthread_cond_wait(&pfifo->pfifo_cond, &pfifo->pfifo_mutex);
+
+   pthread_mutex_lock(&pfifo->mutex);
+   while (full_pfifo(pfifo))
+   {
+      pthread_cond_wait(&pfifo->cond_not_full, &pfifo->mutex);
    }
+   
    require (!full_pfifo(pfifo), "full FIFO");  // IMPORTANT: in a shared fifo, it may not result from a program error!
+   
+   //printf("[insert_pfifo] value=%d, priority=%d, pfifo->inp=%d, pfifo->out=%d\n", id, priority, pfifo->inp, pfifo->out);
 
    int idx = pfifo->inp;
    int prev = (idx + FIFO_MAXSIZE - 1) % FIFO_MAXSIZE;
@@ -60,22 +63,23 @@ void insert_pfifo(PriorityFIFO* pfifo, int id, int priority)
    pfifo->cnt++;
    //printf("[insert_pfifo] pfifo->inp=%d, pfifo->out=%d\n", pfifo->inp, pfifo->out);
 
-   pthread_cond_signal(&pfifo->pfifo_cond);
-   pthread_mutex_unlock(&pfifo->pfifo_mutex);
+   pthread_cond_broadcast(&pfifo->cond_not_empty);
+   pthread_mutex_unlock(&pfifo->mutex);
 }
 
 /* --------------------------------------- */
 
-// TODO point: synchronization changes may be required in this function
 int retrieve_pfifo(PriorityFIFO* pfifo)
 {
    require (pfifo != NULL, "NULL pointer to FIFO");   // a false value indicates a program error
-   require (!empty_pfifo(pfifo), "empty FIFO");       // IMPORTANT: in a shared fifo, it may not result from a program error!
 
-   pthread_mutex_lock(&pfifo->pfifo_mutex);
-   while (empty_pfifo(pfifo)) {
-      pthread_cond_wait(&pfifo->pfifo_cond, &pfifo->pfifo_mutex);
+   pthread_mutex_lock(&pfifo->mutex);
+   while (empty_pfifo(pfifo))
+   {
+      pthread_cond_wait(&pfifo->cond_not_empty, &pfifo->mutex);
    }
+
+   require (!empty_pfifo(pfifo), "empty FIFO");       // IMPORTANT: in a shared fifo, it may not result from a program error!
 
    check_valid_patient_id(pfifo->array[pfifo->out].id);
    check_valid_priority(pfifo->array[pfifo->out].priority);
@@ -96,10 +100,9 @@ int retrieve_pfifo(PriorityFIFO* pfifo)
    }
 
    ensure ((result >= 0 && result <= MAX_ID) || result == DUMMY_ID, "invalid id");  // a false value indicates a program error
-   ensure (result != INVALID_ID, "invalid id");  // a false value indicates a program error
 
-   pthread_cond_signal(&pfifo->pfifo_cond);
-   pthread_mutex_unlock(&pfifo->pfifo_mutex);
+   pthread_cond_broadcast(&pfifo->cond_not_full);
+   pthread_mutex_unlock(&pfifo->mutex);
 
    return result;
 }
