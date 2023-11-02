@@ -89,6 +89,10 @@ void init_simulation(int np)
    hd->num_patients = np;
    init_pfifo(&hd->triage_queue);
    init_pfifo(&hd->doctor_queue);
+   for( int i = 0; i < np; i++) {
+      mutex_init(&hd->all_patients[i].mutex, NULL);
+      cond_init(&hd->all_patients[i].cond, NULL);
+   }
 }
 
 /* ************************************************* */
@@ -101,6 +105,10 @@ void term_simulation(int np) {
    printf("Releasing resources\n");
    term_pfifo(&hd->doctor_queue);
    term_pfifo(&hd->triage_queue);
+   for( int i = 0; i < np; i++) {
+      mutex_destroy(&hd->all_patients[i].mutex);
+      cond_destroy(&hd->all_patients[i].cond);
+   }
    free(hd);
    hd = NULL;
 }
@@ -116,7 +124,6 @@ int nurse_iteration(int id) // return value can be used to request termination
    check_valid_patient(patient);
 
    if (patient == DUMMY_ID) {
-      printf("Queue is empty!");
       return 1;
    }
 
@@ -140,7 +147,6 @@ int doctor_iteration(int id) // return value can be used to request termination
    check_valid_patient(patient);
 
    if (patient == DUMMY_ID) {
-      printf("Queue is empty!");
       return 1;
    }
 

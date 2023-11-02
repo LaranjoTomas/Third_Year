@@ -13,9 +13,9 @@ void init_pfifo(PriorityFIFO* pfifo)
    memset(pfifo->array, 0, sizeof(pfifo->array));
    pfifo->inp = pfifo->out = pfifo->cnt = 0;
 
-   pthread_mutex_init(&pfifo->mutex, NULL);
-   pthread_cond_init(&pfifo->cond_not_empty, NULL);
-   pthread_cond_init(&pfifo->cond_not_full, NULL);
+   mutex_init(&pfifo->mutex, NULL);
+   cond_init(&pfifo->cond_not_empty, NULL);
+   cond_init(&pfifo->cond_not_full, NULL);
 }
 
 /* --------------------------------------- */
@@ -56,6 +56,7 @@ void insert_pfifo(PriorityFIFO* pfifo, int id, int priority)
       idx = prev;
       prev = (idx + FIFO_MAXSIZE - 1) % FIFO_MAXSIZE;
    }
+   
    //printf("[insert_pfifo] idx=%d, prev=%d\n", idx, prev);
    pfifo->array[idx].id = id;
    pfifo->array[idx].priority = priority;
