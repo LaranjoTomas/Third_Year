@@ -24,45 +24,63 @@
 #include <stdlib.h>
 #include "thread.h"
 
-static int count;
+pthread_mutex_t mutex;
+pthread_cond_t cond;
+
+static int* count;
 void* thread_main(void* arg) {
     printf("[child] start\n");
-    usleep(50000);
+    pthread_mutex_lock(&mutex);
     int N2;
-    printf("Enter a number [10;20]: \n");
+    printf("Number for iteration, number must be [10;20]: \n");
     scanf("%d", &N2);
+
     if (N2 < 10 || N2 > 20) {
-        printf("N2 must be a positive number\n");
-        exit(EXIT_FAILURE);
+        printf("Number does not meet the criteria!\n");
+        return 0;
     }
-    while(count != N2) {
-        printf("Numero = %d\n", count);
-        count++;
-        usleep(50000);
+
+    while(*count < N2) {
+        (*count)++;
+        printf("Shared variable new value is : %d\n", *count);
     }
+    
     printf("[child] end\n");
+    pthread_mutex_unlock(&mutex);
     return NULL;
 }
 
 int main(int argc, char* argv[]) {
     printf("[main] start\n");
-    int N1;
     pthread_t thread;
-    printf("Enter a number [1;9]: \n");
+    int N1;
+    printf("Number for iteration, number must be [1;9]: \n");
     scanf("%d", &N1);
-    if (N1 < 0 || N1 > 9) {
-        printf("N1 must be a positive number\n");
-        exit(EXIT_FAILURE);
-    }        
-    int* NR = (int*) malloc(sizeof(int));
-    count = N1;
-    thread_create(&thread, NULL, thread_main, NR);
-    thread_join(thread, NULL);
-    while(count > 0) {
-        printf("Numero = %d\n", count);
-        count--;
-        usleep(50000);
+
+    if (N1 < 1 || N1 > 9) {
+        printf("Number does not meet the criteria!\n");
+        return 0;
     }
+
+    count = (int*) malloc(sizeof(int));
+    if (count == NULL) {
+        perror("Error allocating memory");
+        exit(1);
+    }
+    *count = N1;
+
+    pthread_create(&thread, NULL, thread_main, (void*) count);
+
+    pthread_join(thread, NULL);
+
+    while(*count > 0 ) {
+        printf("Shared variable new value: %d\n", *count);
+        (*count)--;
+    }
+
+    free(count);
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&cond);
     printf("[main] end\n");
     return 0;
 }
