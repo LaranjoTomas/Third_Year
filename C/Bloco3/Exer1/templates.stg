@@ -1,0 +1,7 @@
+XmlMultiline(tag, entry) ::= <<
+    \<<tag>\>
+        <if(entry)><entry; separator="\n"><endif>
+    \</<tag>\>
+>>
+
+XmlOneline(tag,entry) ::= "\<<tag>><if(entry)> <entry><endif> \</<tag>>"
