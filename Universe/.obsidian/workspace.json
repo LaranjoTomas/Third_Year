@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "4cd2f019cec1bf83",
+    "type": "split",
+    "children": [
+      {
+        "id": "d37f19cfcf0ba6a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a72b811682c0f54",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IHC/1st Assignment.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f6d84abbbb7f7192",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b3af7b8093cf129",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b24a4021ca452d01",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fab04cea7344bf5c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "77c77c2e52adf9aa",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "22a2b7574328c9b4",
+    "type": "split",
+    "children": [
+      {
+        "id": "39ce4a71d2cd96c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9731a00bfe5df8a7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "IHC/1st Assignment.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "578f840913e28f8a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "IHC/1st Assignment.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8e69134989d4c538",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "730038b141008547",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "IHC/1st Assignment.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1a72b811682c0f54",
+  "lastOpenFiles": [
+    "IHC/Template-Final-2nd_assignment-HCI-v0.pptx",
+    "BD/Aula9/aula9_submit.md",
+    "BD/Aula9/aula9.pdf",
+    "BD/Aula8/aula8.pdf",
+    "BD/Aula8/aula8_submit.md",
+    "BD/Aula8/Aula8_Material/__MACOSX/Aula8_Material/AdventureWorks2012_Database",
+    "BD/Aula8/Aula8_Material/__MACOSX/Aula8_Material",
+    "BD/Aula8/Aula8_Material/__MACOSX",
+    "BD/Aula8/Aula8_Material/Aula8_Material/AdventureWorks2012_Database/AdventureWorks2012_log.ldf",
+    "BD/Aula8/Aula8_Material/Aula8_Material/AdventureWorks2012_Database/AdventureWorks2012_Data.mdf",
+    "BD/Aula8/Aula8_Material/Aula8_Material/AdventureWorks2012_Database",
+    "BD/Aula8/Aula8_Material/Aula8_Material",
+    "BD/Aula8/Aula8_Material",
+    "BD/Aula2/aula2_submit.md",
+    "BD/Aula3/aula3_submit.md",
+    "BD/Aula4/aula4_submit.md",
+    "BD/Aula7/aula7_submit.md",
+    "PDS/README.md",
+    "PDS/me/empresa_UML.png",
+    "PDS/Aula7.md",
+    "PDS/me/Diagram.png",
+    "PDS/Diagram.png",
+    "BD/Teste_T/SOMETHING TO BE DEFINED.md",
+    "Pasted image 20240408133940.png",
+    "Pasted image 20240408132945.png",
+    "Pasted image 20240408131309.png",
+    "IA/IA.md",
+    "IA/Exers.md",
+    "BD/Trabalho_P/Proposta.md.md",
+    "ex_4_1_1.sql.md",
+    "BD/Aula3/ex_3_3_d.png",
+    "BD/Aula4/ex_3_3_d.png",
+    "BD/Aula3/ex3_3a.png",
+    "BD/Aula3/ex_3_1_c.png",
+    "IHC/1st Assignment.md",
+    "Untitled.canvas",
+    "Blender/Blender.md",
+    "SO/Teste modelo 2017-2018.md"
+  ]
+}

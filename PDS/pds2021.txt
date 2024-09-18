@@ -1,0 +1,58 @@
+C:\Users\Laranjo\Desktop\UNI\ThridYear\PDS
+
+Alínea 1) ----------------------------------
+
+
+--- Campers disponíveis :
+MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Camper van com quatro lugares, 2 camas, mesa.
+Camper van com dois lugares, 1 cama, cozinha, mesa, WC.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
+
+
+Utilizador Marco Silva alugou MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Utilizador Joana Inácio alugou Camper van com dois lugares, 1 cama, cozinha, mesa, WC.
+
+--- Campers disponíveis :
+Camper van com quatro lugares, 2 camas, mesa.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
+
+
+Utilizador Marco Silva devolveu MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+
+--- Campers disponíveis :
+MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Camper van com quatro lugares, 2 camas, mesa.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
+
+
+
+
+Alínea 2 (exemplo de output) ----------------------------------
+
+
+Pedido de Marco Silva para MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.: Pendente
+Pedido de Joana Inácio para Camper van com dois lugares, 1 cama, cozinha, mesa, WC.: Pendente
+Pedido de Carolina Marques para Tenda de tejadilho para duas pessoas, de montagem rápida.: Pendente
+
+--- Campers disponivies :
+MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Camper van com quatro lugares, 2 camas, mesa.
+Camper van com dois lugares, 1 cama, cozinha, mesa, WC.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
+
+Pedido de Marco Silva para MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.: Aceite
+Pedido de Joana Inácio para Camper van com dois lugares, 1 cama, cozinha, mesa, WC.: Rejeitado
+
+--- Campers disponivies :
+MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Camper van com quatro lugares, 2 camas, mesa.
+Camper van com dois lugares, 1 cama, cozinha, mesa, WC.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
+Pedido cancelado: Carolina Marques do camper: Tenda de tejadilho para duas pessoas, de montagem rápida.
+
+--- Campers disponíveis :
+MotorHome com quatro lugares, 3 camas, cozinha, mesa, WC.
+Camper van com quatro lugares, 2 camas, mesa.
+Camper van com dois lugares, 1 cama, cozinha, mesa, WC.
+Tenda de tejadilho para duas pessoas, de montagem rápida.
