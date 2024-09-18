@@ -1,0 +1,1 @@
+Pode ser aplicado o padrão "Strategy".

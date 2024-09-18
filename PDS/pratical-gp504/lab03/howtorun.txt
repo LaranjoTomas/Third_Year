@@ -1,0 +1,11 @@
+javac lab03/FlightsMain.java - na root do projeto (aka onde dá para ver lab01, lab02, lab03, etc)
+
+java lab03/FlightsMain
+ou
+java lab03/FlightsMain test1.txt
+
+-----------------------------------------------
+
+javac lab03/JGaloImplementer.java - na root do projeto (aka onde dá para ver lab01, lab02, lab03, etc)
+
+java lab03/JGaloImplementer

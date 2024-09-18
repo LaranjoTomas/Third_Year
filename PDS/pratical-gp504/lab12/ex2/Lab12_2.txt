@@ -1,0 +1,13 @@
+
+1. java.io.Reader
+A classe Reader utiliza o padrão Template Method nos métodos read(char[] cbuf, int off, int len), skip(long n) e close(). 
+Esses métodos definem a estrutura das operações de leitura e delegam a implementação específica para métodos que devem ser fornecidos pelas subclasses.
+
+2. java.io.Writer
+A classe Writer utiliza o padrão Template Method nos métodos write(char[] cbuf, int off, int len), flush() e close().
+Esses métodos definem a estrutura das operações de escrita e delegam a implementação específica para métodos que devem ser fornecidos pelas subclasses.
+
+3. java.util.AbstractList
+A classe AbstractList utiliza o padrão Template Method nos métodos add(int index, E element), remove(int index), get(int index) e set(int index, E element).
+Esses métodos definem a estrutura das operações de manipulação da lista e permitem que subclasses implementem os detalhes específicos de adição, remoção, acesso e substituição de elementos.
+

@@ -1,0 +1,17 @@
+Os padrões de construção que conseguimos identificar são:
+    -Factory Method Pattern
+    -Singleton Pattern
+    -State Pattern
+
+### Factory Method Pattern
+O Factory Method Pattern é um padrão de projeto de software que define uma interface para criar um objeto, mas permite que as classes decidam qual classe instanciar. O Factory Method permite que uma classe adie a instanciação para subclasses.
+Ela retorna uma instância de "Calendar" baseada na localidade e no fuso horário do sistema.
+
+### Singleton Pattern
+O Singleton Pattern é um padrão de projeto de software que restringe a instanciação de uma classe a um único objeto. Isso é útil quando exatamente um objeto é necessário para coordenar ações em todo o sistema.
+A classe "Calendar" pode ser considerada como um singleton em termos de cada instância específica de calendário. Isto acontece porque "getInstance()" retorna, sempre, a mesma instância para um determinado tipo de calendário e localidade.
+
+### State Pattern
+O State Pattern é um padrão de projeto de software que permite que um objeto altere seu comportamento quando seu estado interno muda. O objeto parecerá mudar de classe.
+A classe "Calendar" interage com diferentes estados de datas e horas. Por exemplo, os métodos "get" e "set()" são sensíveis ao estado atual do calendário e retornam ou alteram os valores com base nesse estado.
+

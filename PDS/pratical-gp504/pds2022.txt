@@ -1,0 +1,44 @@
+C:\Users\Laranjo\Desktop\UNI\ThridYear\PDS\practical-gp504
+2024/06/04 21:16:42
+
+Question 1) ----------------------------------
+
+--- All Products :
+Matricula: ZA11ZB, descricao: Tesla, Grey, 2021, kms: 100.0
+Matricula: AA22BB, descricao: Chevrolet Chevy, 2020, kms: 180.0
+Matricula: ZA33ZB, descricao: Touring, 750, 2022, kms: 85.0
+Matricula: BB44ZB, descricao: Ford Mustang, Red, 2021, kms: 150.0
+--- Shared Products :
+Matricula: ZA11ZB, descricao: Tesla, Grey, 2021, kms: 100.0
+Matricula: ZA33ZB, descricao: Touring, 750, 2022, kms: 85.0
+Matricula: BB44ZB, descricao: Ford Mustang, Red, 2021, kms: 150.0
+
+--- Shared Products :
+Matricula: ZA33ZB, descricao: Touring, 750, 2022, kms: 85.0
+
+--- All Products :
+Matricula: AA22BB, descricao: Chevrolet Chevy, 2020, kms: 180.0
+Matricula: BB44ZB, descricao: Ford Mustang, Red, 2021, kms: 150.0
+Matricula: JJ0011, descricao: Some old SUV, kms: 88.5
+
+Question 2 (output example) ----------------------------------
+
+--- All Products :
+Matricula: 990001, descricao: Toyota Avalon, kms: 100.0
+Matricula: 990002, descricao: MAZDA MX-5 Miata, kms: 100.0
+Matricula: 990000, descricao: Ford Maverick, kms: 120.0
+Matricula: 980001, descricao: GMC Safari, kms: 130.0
+Matricula: 980002, descricao: Lancia Voyager, kms: 120.0
+Matricula: 970006, descricao: Alfa Romeo AR6, kms: 130.0
+Matricula: 970005, descricao: Jeep Grand Cherokee, kms: 150.0
+Matricula: 900009, descricao: BMW R1150R Boxer Naked Roadster Cinza ABS, kms: 195.0
+Matricula: 900010, descricao: Harley-Davidson Pan America 1250, kms: 205.0
+Matricula: 990001, descricao: Ducati DesertX, kms: 185.0
+--- Shared Products :
+Matricula: 990000, descricao: Ford Maverick, kms: 120.0
+Matricula: 970006, descricao: Alfa Romeo AR6, kms: 130.0
+Matricula: 900010, descricao: Harley-Davidson Pan America 1250, kms: 205.0
+
+--- Shared Products :
+Matricula: 990000, descricao: Ford Maverick, kms: 120.0
+
